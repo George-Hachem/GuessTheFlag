@@ -25,12 +25,15 @@ struct ContentView: View {
            
         ZStack{
             
-            RadialGradient(gradient: Gradient(stops: [.init(color: Color(red: 0.15, green: 0.8, blue: 0.5), location: 0.45), .init(color:Color(red:0.9, green: 0.3, blue: 0.6), location: 0.45)]), center: .top, startRadius: 200, endRadius: 500).ignoresSafeArea()
+            RadialGradient(gradient: Gradient(stops: [.init(color: Color(red: 0.9, green: 0.8, blue: 0.9), location: 0.45), .init(color:Color(red:0.6, green: 0.1, blue: 0.9), location: 0.9)]), center: .bottom, startRadius: 200, endRadius: 500).ignoresSafeArea()
             VStack{
                 Spacer()
                 Text("Guess The Flag")
-                    .font(.largeTitle.bold()).underline()
-                    .foregroundColor(.some(.red))
+                    .font(.largeTitle.bold())
+                    .foregroundStyle(.primary)
+                    .background(.ultraThinMaterial)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+
                 VStack(spacing: 30){
                     VStack{
                         Text("ROUND \(round)").foregroundStyle(.secondary).font(.system(size:20).weight(.semibold))
