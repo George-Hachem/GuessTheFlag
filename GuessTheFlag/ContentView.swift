@@ -30,6 +30,7 @@ struct ContentView: View {
                 Spacer()
                 Text("Guess The Flag")
                     .font(.largeTitle.bold())
+                    .fontDesign(.monospaced)
                     .foregroundStyle(.primary)
                     .background(.ultraThinMaterial)
                     .clipShape(RoundedRectangle(cornerRadius: 10))
