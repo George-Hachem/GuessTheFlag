@@ -9,6 +9,25 @@
 import SwiftUI
 
 
+struct imageFlag: ViewModifier{
+    var imageText: String
+    func body(content: Content) -> some View {
+        content
+        Image(imageText)
+            .renderingMode(.original)
+            .clipShape(Capsule())
+            .shadow(radius: 50)
+    }
+}
+
+extension View{
+    func FlagImage(with text: String) -> some View{
+        modifier(imageFlag(imageText: text))
+    }
+}
+
+
+
 struct ContentView: View {
 
     @State private var scoreTitle: String = ""
@@ -48,10 +67,11 @@ struct ContentView: View {
                         Button{
                             flagTapped(number)
                         } label:{
-                            Image(countries[number])
-                                .renderingMode(.original)
-                                .clipShape(Capsule())
-                                .shadow(radius: 50)
+                            FlagImage(with: countries[number])
+//                            Image(countries[number])
+//                                .renderingMode(.original)
+//                                .clipShape(Capsule())
+//                                .shadow(radius: 50)
                         }
                     }
                 }
